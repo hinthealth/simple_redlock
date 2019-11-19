@@ -2,10 +2,12 @@
 
 LockError = Class.new(StandardError)
 
+require 'active_support/core_ext/numeric/time'
+
 module SimpleRedisLock
   class RedisLock
     DEFAULT_RETRY_COUNT = 25
-    # DEFAULT_TTL = 5.seconds # TODO: add active support?
+    DEFAULT_TTL = 5.seconds
     UNLOCK_SCRIPT = <<~LUA
       if redis.call("get",KEYS[1]) == ARGV[1] then
         return redis.call("del",KEYS[1])
