@@ -7,7 +7,9 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-       - image: circleci/ruby:2.4.1-node-browsers
+       - image: circleci/ruby:2.5-stretch
+         environment:
+          BUNDLER_VERSION: 2.0.1
 
     working_directory: ~/repo
 
@@ -20,11 +22,16 @@ jobs:
           - v1-dependencies-{{ checksum "Gemfile.lock" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            gem update --system
+            gem install bundler
 
       - run:
           name: install dependencies
           command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+            bundle install
       - save_cache:
           paths:
             - ./vendor/bundle
