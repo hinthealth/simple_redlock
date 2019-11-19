@@ -1,0 +1,40 @@
+on:
+  check_run:
+    types:
+      # Check runs completing successfully can unblock the
+      # corresponding pull requests and make them mergeable.
+      - completed
+  pull_request:
+    types:
+      # A closed pull request makes the checks on the other
+      # pull request on the same base outdated.
+      - closed
+      # Adding the autosquash label to a pull request can
+      # trigger an update or a merge.
+      - labeled
+  pull_request_review:
+    types:
+      # Review approvals can unblock the pull request and
+      # make it mergeable.
+      - submitted
+  # Success statuses can unblock the corresponding
+  # pull requests and make them mergeable.
+  status: {}
+name: Automatic Rebase
+jobs:
+  rebase:
+    name: Rebase
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Automatic Rebase
+      uses: cirrus-actions/rebase@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # https://github.community/t5/GitHub-Actions/Workflow-is-failing-if-no-job-can-be-ran-due-to-condition/m-p/38186#M3250
+  always_job:
+    name: Aways run job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Always run
+        run: echo "This job is used to prevent the workflow to fail when all other jobs are skipped."
