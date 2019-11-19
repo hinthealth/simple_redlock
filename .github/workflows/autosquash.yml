@@ -1,3 +1,4 @@
+name: Autosquash
 on:
   check_run:
     types:
@@ -20,21 +21,16 @@ on:
   # Success statuses can unblock the corresponding
   # pull requests and make them mergeable.
   status: {}
-name: Automatic Rebase
+
 jobs:
-  rebase:
-    name: Rebase
-    runs-on: ubuntu-latest
+  autosquash:
+    name: Autosquash
+    runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@master
-    - name: Automatic Rebase
-      uses: cirrus-actions/rebase@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  # https://github.community/t5/GitHub-Actions/Workflow-is-failing-if-no-job-can-be-ran-due-to-condition/m-p/38186#M3250
-  always_job:
-    name: Aways run job
-    runs-on: ubuntu-latest
-    steps:
-      - name: Always run
-        run: echo "This job is used to prevent the workflow to fail when all other jobs are skipped."
+      - uses: tibdex/autosquash@v2
+        with:
+          # We can't use the built-in secrets.GITHUB_TOKEN yet because of this limitation:
+          # https://github.community/t5/GitHub-Actions/Triggering-a-new-workflow-from-another-workflow/td-p/31676
+          # In the meantime, use a personal access token with repo access.
+          # See https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line
+          github_token: ${{ secrets.AUTOSQUASH_TOKEN }}
