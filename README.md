@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You can invoke it with `RedisLock.new.lock(key_name, value, time_in_ms)`
 
 ## Development
 
