@@ -3,6 +3,7 @@
 LockError = Class.new(StandardError)
 
 require 'active_support/core_ext/numeric/time'
+require_relative 'memory_extension'
 
 module SimpleRedisLock
   class RedisLock
