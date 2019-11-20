@@ -1,4 +1,5 @@
 require 'bundler/setup'
+require 'rspec'
 require 'simple_redis_lock/redis_lock'
 
 RSpec.configure do |config|
