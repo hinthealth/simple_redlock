@@ -1,4 +1,6 @@
-# Simple::Redis::Lock
+# Simple Redis Lock
+
+[![CircleCI](https://circleci.com/gh/hinthealth/simple-redis-lock/tree/master.svg?style=svg&circle-token=572e9e02e6a60342db0e62647bcc0ced8295435f)](https://circleci.com/gh/hinthealth/simple-redis-lock/tree/master)
 
 This gem implements a lock using Redis in 90 lines of code.
 
