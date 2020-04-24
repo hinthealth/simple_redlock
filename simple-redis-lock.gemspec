@@ -4,7 +4,7 @@ require 'simple_redis_lock/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'simple-redis-lock'
-  spec.version       = SimpleRedisLock::VERSION
+  spec.version       = RedisLock::VERSION
   spec.authors       = ['Hint']
   spec.email         = ['maicol.bentancor@gmail.com']
 
