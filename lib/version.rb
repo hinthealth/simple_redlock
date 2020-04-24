@@ -1,3 +1,3 @@
-module SimpleRedisLock
+class SimpleRedisLock
   VERSION = '0.1.0'.freeze
 end
