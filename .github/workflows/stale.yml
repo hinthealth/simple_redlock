@@ -14,4 +14,3 @@ jobs:
         days-before-stale: 2
         days-before-close: 5
         stale-pr-label: 'stale'
-        stale-pr-label: 'stale'
