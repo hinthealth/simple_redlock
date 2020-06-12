@@ -1,6 +1,6 @@
 require 'bundler/setup'
 require 'rspec'
-require 'simple_redis_lock/redis_lock'
+require 'simple_redis_lock'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
