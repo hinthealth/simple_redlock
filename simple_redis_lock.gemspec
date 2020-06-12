@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'simple-redis-lock'
+  spec.name          = 'simple_redis_lock'
   spec.version       = SimpleRedisLock::VERSION
   spec.authors       = ['Hint']
   spec.email         = ['maicol.bentancor@gmail.com']
