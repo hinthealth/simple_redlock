@@ -18,7 +18,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install simple-redis-lock
+    $ gem install simple_redis_lock
 
 ## Usage
 
