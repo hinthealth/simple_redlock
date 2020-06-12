@@ -3,7 +3,7 @@
 LockError = Class.new(StandardError)
 
 require 'active_support/core_ext/numeric/time'
-require_relative 'memory_extension'
+require_relative 'simple_redis_lock/memory_extension'
 
 class SimpleRedisLock
   DEFAULT_RETRY_COUNT = 25
