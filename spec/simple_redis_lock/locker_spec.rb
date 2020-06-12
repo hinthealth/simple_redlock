@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe SimpleRedisLock do
+RSpec.describe SimpleRedisLock::Locker do
   let(:redis_double) { double('Redis') }
   let(:redis_lock) { described_class.new(retry_count: retry_count) }
   let(:retry_count) { 20 }

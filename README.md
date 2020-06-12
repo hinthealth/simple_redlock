@@ -22,7 +22,9 @@ Or install it yourself as:
 
 ## Usage
 
-You can invoke it with `SimpleRedisLock.new.lock(key_name, value, time_in_ms)`
+You can invoke it with `SimpleRedisLock::Locker.new.lock(key_name, value, time_in_ms)`
+
+If you use `ActiveRecord`, you can include `SimpleRedisLock::Lockable` and call `exclusively(:your_key)` in your record.
 
 ## Development
 
