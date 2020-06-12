@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+LockError = Class.new(StandardError)
+
 module SimpleRedisLock
   class Locker
     DEFAULT_RETRY_COUNT = 25
