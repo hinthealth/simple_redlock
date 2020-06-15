@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+LockError = Class.new(StandardError)
+
 module SimpleRedisLock
   class Locker
     DEFAULT_RETRY_COUNT = 25
@@ -68,7 +72,7 @@ module SimpleRedisLock
     end
 
     def redis
-      Thread.current[:redis] ||= Redis.new(url: Settings.redis.url)
+      Thread.current[:redis] ||= Redis.new(url: 'redis://localhost:6379')
     end
 
     def lock(key, value, ttl)
