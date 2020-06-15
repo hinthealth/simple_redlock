@@ -72,7 +72,7 @@ module SimpleRedlock
     end
 
     def redis
-      Thread.current[:redis] ||= Redis.new(url: 'redis://localhost:6379')
+      Thread.current[:redis] ||= Redis.new(url: SimpleRedlock.redis_url)
     end
 
     def lock(key, value, ttl)
