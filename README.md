@@ -1,6 +1,6 @@
 # Simple Redis Lock
 
-[![CircleCI](https://circleci.com/gh/hinthealth/simple_redis_lock/tree/master.svg?style=svg&circle-token=572e9e02e6a60342db0e62647bcc0ced8295435f)](https://circleci.com/gh/hinthealth/simple_redis_lock/tree/master)
+[![CircleCI](https://circleci.com/gh/hinthealth/simple_redlock/tree/master.svg?style=svg&circle-token=572e9e02e6a60342db0e62647bcc0ced8295435f)](https://circleci.com/gh/hinthealth/simple_redlock/tree/master)
 
 This gem implements a lock using Redis in 90 lines of code.
 
@@ -9,7 +9,7 @@ This gem implements a lock using Redis in 90 lines of code.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'simple_redis_lock'
+gem 'simple_redlock'
 ```
 
 And then execute:
@@ -18,13 +18,13 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install simple_redis_lock
+    $ gem install simple_redlock
 
 ## Usage
 
-You can invoke it with `SimpleRedisLock::Locker.new.lock(key_name, value, time_in_ms)`
+You can invoke it with `SimpleRedlock::Locker.new.lock(key_name, value, time_in_ms)`
 
-If you use `ActiveRecord`, you can include `SimpleRedisLock::Lockable` and call `exclusively(:your_key)` in your record.
+If you use `ActiveRecord`, you can include `SimpleRedlock::Lockable` and call `exclusively(:your_key)` in your record.
 
 ## Development
 
@@ -34,7 +34,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/hinthealth/simple_redis_lock. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/hinthealth/simple_redlock. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -42,4 +42,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Simple::Redis::Lock project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/hinthealth/simple_redis_lock/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Simple::Redis::Lock project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/hinthealth/simple_redlock/blob/master/CODE_OF_CONDUCT.md).

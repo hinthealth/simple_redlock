@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 class LockableObject
-  include SimpleRedisLock::Lockable
+  include SimpleRedlock::Lockable
 
   attr_accessor :id
 
