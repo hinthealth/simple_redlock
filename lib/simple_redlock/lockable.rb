@@ -1,4 +1,4 @@
-module SimpleRedisLock
+module SimpleRedlock
   module Lockable
     def exclusively(key, options = {}, &block)
       transaction do
@@ -13,7 +13,7 @@ module SimpleRedisLock
     end
 
     def redis_lock
-      @redis_lock ||= SimpleRedisLock::Locker.new
+      @redis_lock ||= SimpleRedlock::Locker.new
     end
   end
 end

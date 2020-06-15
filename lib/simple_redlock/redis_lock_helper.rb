@@ -3,7 +3,7 @@ class Redis
     class Memory
       def eval(*args)
         case args[0]
-        when SimpleRedisLock::Locker::UNLOCK_SCRIPT
+        when SimpleRedlock::Locker::UNLOCK_SCRIPT
           return 0 unless get(args[2]) == args[3]
 
           del(args[2])

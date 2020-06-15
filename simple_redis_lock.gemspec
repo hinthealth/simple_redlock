@@ -1,10 +1,10 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'simple_redis_lock/version'
+require 'simple_redlock/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'simple_redis_lock'
-  spec.version       = SimpleRedisLock::VERSION
+  spec.name          = 'simple_redlock'
+  spec.version       = SimpleRedlock::VERSION
   spec.authors       = ['Hint']
   spec.email         = ['maicol.bentancor@gmail.com']
 

@@ -2,7 +2,7 @@
 
 LockError = Class.new(StandardError)
 
-module SimpleRedisLock
+module SimpleRedlock
   class Locker
     DEFAULT_RETRY_COUNT = 25
     DEFAULT_TTL = 5.seconds
