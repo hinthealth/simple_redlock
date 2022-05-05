@@ -2,15 +2,16 @@ require 'spec_helper'
 
 RSpec.describe SimpleRedlock::Locker do
   let(:redis_double) { double('Redis') }
-  let(:redis_lock) { described_class.new(retry_count: retry_count) }
+  let(:redis_lock) { described_class.new }
   let(:retry_count) { 20 }
-  before { allow_any_instance_of(described_class).to receive(:redis).and_return(redis_double) }
+
+  before { allow_any_instance_of(ConnectionPool).to receive(:with).and_yield(redis_double) }
 
   describe '#lock_resource' do
     let(:key) { 'key' }
     let(:value) { 'value' }
-    let(:ttl) { 2.seconds }
-    subject(:locked) { redis_lock.lock_resource(key, value, ttl) }
+    let(:ttl) { 2 }
+    subject(:locked) { redis_lock.lock_resource(key, value, ttl, retry_count) }
 
     context 'when the lock is available' do
       before { allow(redis_double).to receive_messages(set: true) }
