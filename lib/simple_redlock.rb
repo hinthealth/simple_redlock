@@ -1,6 +1,5 @@
 require 'connection_pool'
 require 'redis'
-require 'redis/connection/hiredis'
 
 require_relative 'simple_redlock/locker'
 require_relative 'simple_redlock/lockable'
@@ -40,7 +39,7 @@ module SimpleRedlock
 
   def self.redis_pool
     @redis_pool ||= ConnectionPool.new(timeout: redis_pool_timeout, size: redis_pool_size) do
-      Redis.new(url: redis_url, driver: :hiredis)
+      Redis.new(url: redis_url)
     end
   end
 
